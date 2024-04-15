@@ -1,0 +1,465 @@
+{% load static %} {% load static i18n %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"><title>SMART NFC</title>
+
+    <link rel="shortcut icon" href="{% static 'assets/images/fav.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/apexcharts.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/arafat-font.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+</head>
+
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section body-collapse">
+        <div class="overlay">
+            <div class="container-fruid">
+                <div class="row d-flex header-area">
+                    <div class="navbar-area d-flex align-items-center justify-content-between">
+                        <div class="sidebar-icon">
+                            <img src="{% static 'assets/images/icon/menu.png' %}" alt="icon">
+                        </div>
+                        <form action="#" class="flex-fill">
+                            <div class="form-group d-flex align-items-center">
+                                <img src="{% static 'assets/images/icon/search.png' %}" alt="icon">
+                                <input type="text" placeholder="Type to search...">
+                            </div>
+                        </form>
+                        <div class="dashboard-nav">
+                            <div class="single-item notifications-area">
+                            </div>
+                            <div class="single-item user-area">
+                                <div class="profile-area d-flex align-items-center">
+                                    <span class="user-profile">
+                                        <img src="{% static 'assets/images/avatar.png' %}" alt="User">
+                                    </span>
+                                    <i class="fa-solid fa-sort-down"></i>
+                                </div>
+                                <div class="main-area user-content">
+                                    <div class="head-area d-flex align-items-center">
+                                        <div class="profile-img">
+                                            <img src="{% static 'assets/images/avatar-2.png' %}" alt="User">
+                                        </div>
+                                        <div class="profile-head">
+                                            <a href="javascript:void(0)">
+                                                <h5>{{account.full_name}}</h5>
+                                            </a>
+                                            <p class="wallet-id">Wallet ID: {{wallet.account_name}}</p>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li class="border-area">
+                                            <a href="/account"><i class="fas fa-cog"></i>Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="logout"><i class="fas fa-sign-out"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-wrapper">
+                        <div class="close-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        <div class="sidebar-logo">
+                            <a href=""><img src="{% static 'assets/images/logo.png' %}" alt="logo"></a>
+                        </div>
+                        <ul>
+                            <li class="active">
+                                <a href="/dashboard_user">
+                                    <img src="{% static 'assets/images/icon/dashboard.png' %}" alt="Dashboard"> <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <!-- Update paths for other static files similarly -->
+                        </ul>
+
+                        <ul>
+                            <li class="">
+                                <a href="/wallet">
+                                    <img src="{% static 'assets/images/icon/pay.png' %}" alt="Dashboard"> <span>Credit</span>
+                                </a>
+                            </li>
+                            <!-- Update paths for other static files similarly -->
+                        </ul>
+
+
+                        <ul>
+                            <li class="">
+                                <a href="/transcations">
+                                    <img src="{% static 'assets/images/icon/transactions.png' %}" alt="Dashboard"> <span>Transactions</span>
+                                </a>
+                            </li>
+                            <!-- Update paths for other static files similarly -->
+                        </ul>
+
+
+                        <ul>
+                            <li class="">
+                                <a href="/deposit">
+                                    <img src="{% static 'assets/images/icon/recipients.png' %}" alt="Dashboard"> <span>Deposit Money</span>
+                                </a>
+                            </li>
+                            <!-- Update paths for other static files similarly -->
+                        </ul>
+
+
+                        <ul>
+                            <li class="">
+                                <a href="/withdraw">
+                                    <img src="{% static 'assets/images/icon/withdraw.png' %}" alt="Dashboard"> <span>Withdraw Money</span>
+                                </a>
+                            </li>
+                            <!-- Update paths for other static files similarly -->
+                        </ul>
+                        <ul class="bottom-item">
+                            <li>
+                                <a href="/account">
+                                    <img src="{% static 'assets/images/icon/account.png' %}" alt="Account"> <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="{% static 'assets/images/icon/support.png' %}" alt="Support"> <span>Support</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/logout">
+                                    <img src="{% static 'assets/images/icon/quit.png' %}" alt="Quit"> <span>Quit</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="pt-120">
+                            <div class="invite-now">
+                                <div class="img-area">
+                                    <img src="{% static 'assets/images/invite-now-illus.png' %}" alt="Image">
+                                </div>
+                                <p>Invite your friend and get $25</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Dashboard Section start -->
+    <section class="dashboard-section body-collapse">
+        <div class="overlay pt-120">
+            <div class="container-fruid">
+                <div class="row">
+                    <div class="col-xl-8 col-lg-7">
+                        <div class="section-content">
+                            <div class="acc-details">
+                                <div class="top-area">
+                                    <div class="left-side">
+                                        <h3 class="text-capitalize">{{account.full_name}}</h5>
+                                        <h5 class="mt-2">ZIG Balance: {{wallet.amount_zig}}</h5>
+                                        <h5 class="mt-2">USD Balance: {{wallet.amount_usd}}</h5>
+                                        
+                                        <h5 class=" mt-2 receive">Last Deposit <span>{{deposit.amount}}</span></h5>
+                                    </div>
+                                    <div class="right-side">
+                                        <div class="right-top">
+                                           
+                                            <div class="dropdown-area">
+                                              
+                                            </div>
+                                        </div>
+                                        <div class="right-bottom">
+                                            <h4>{{payment.amount}}</h4>
+                                            <h5>Last Payment</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bottom-area">
+                                    <div class="left-side">
+                                    
+                                        <a href="/deposit" class="cmn-btn">Add Money</a>
+                                        <a href="/withdraw" class="cmn-btn">Withdraw</a>
+                                    </div>
+                                    <div class="right-side">
+                                        <div class="dropdown-area">
+                                            <button type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <img src="{% static 'assets/images/icon/option.png' %}" alt="icon">
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                           
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="transactions-area mt-40">
+                                <div class="section-text">
+                                    <h5>Transactions</h5>
+                                    <p>Updated every several minutes</p>
+                                </div>
+                                <div class="top-area d-flex align-items-center justify-content-between">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="latest-tab" data-bs-toggle="tab"
+                                                data-bs-target="#latest" type="button" role="tab" aria-controls="latest"
+                                                aria-selected="true">Latest</button>
+                                        </li>
+                                        
+                                    </ul>
+                                    <div class="view-all d-flex align-items-center">
+                                        <a href="/transcations">View All</a>
+                                        <img src="{% static 'assets/images/icon/right-arrow.png' %}" alt="icon">
+                                    </div>
+                                </div>
+                                <div class="tab-content mt-40">
+                                    <div class="tab-pane fade show active" id="latest" role="tabpanel"
+                                        aria-labelledby="latest-tab">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Date</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Amount</th>
+                                                        <th scope="col">Transaction Type</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for tran in transactions %}
+                                                    <tr class="transaction-row" data-id="{{ tran.trans_id }}">
+                                                        <td> <p class="mdr">{{ tran.trans_id }}</p></td>
+                                                        <td class="transaction-date"><p class="mdr">{{ tran.date }}</p></td>
+                                                        <td class="transaction-status"><p ccd lass="mdr"></p>{{ tran.status }}</p></td>
+                                                        <td class="transaction-amount"><p class="mdr"></p>{{ tran.amount }}</p></td>
+                                                        <td class="transaction-type"><p class="mdr"></p>{{ tran.transaction_type }}</p></td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="side-items">
+                            <div class="single-item">
+                                <div class="section-text d-flex align-items-center justify-content-between">
+                                    <h6>Linked Payment system</h6>
+                                    <div class="right-side">
+                                        <div class="dropdown-area">
+                                            <button type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <img src="{% static 'assets/images/icon/option.png' %}" alt="icon">
+                                            </button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                <li><a class="dropdown-item" href="account.html">Update</a></li>
+                                                <li><a class="dropdown-item" href="javascript:void(0)">Virtual card</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="single-card">
+                                            <button type="button" class="reg w-100" data-bs-toggle="modal"
+                                                data-bs-target="#cardMod">
+                                                <img src="{% static 'assets/images/visa-card.png' %}" alt="image" class="w-100">
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Other card elements omitted for brevity -->
+                                </div>
+                            </div>
+                            <div class="single-item">
+                                <div class="section-text d-flex align-items-center justify-content-between">
+                                    <h6>Payment Analytics</h6>
+                                    <div class="select-box">
+                                        <select>
+                                            <option>Monthly</option>
+                                            <option value="1">Jan</option>
+                                            <option value="2">Feb</option>
+                                            <option value="3">Mar</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="chart"></div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Dashboard Section end -->
+
+  
+    
+    <!-- Card Popup start -->
+
+    <!-- Add Card Popup start -->
+    <div class="add-card">
+        <div class="container-fruid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="modal fade" id="addcardMod" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-between">
+                                    <h6>Add Card</h6>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                                <form action="#">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-12">
+                                            <div class="single-input">
+                                                <label for="cardNumber">Card Number</label>
+                                                <input type="text" id="cardNumber"
+                                                    placeholder="5890 - 6858 - 6332 - 9843">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="single-input">
+                                                <label for="cardHolder">Card Holder</label>
+                                                <input type="text" id="cardHolder" placeholder="Alfred Davis">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-input">
+                                                <label for="month">Month</label>
+                                                <input type="text" id="month" placeholder="12">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="single-input">
+                                                <label for="year">Year</label>
+                                                <input type="text" id="year" placeholder="2025">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="btn-border w-100">
+                                                <button class="cmn-btn w-100">Add Card</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="transactions-popup">
+        <div class="container-fruid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="modal fade" id="transactionsMod" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-between">
+                                    <h5>Transaction Details</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                                <div class="main-content">
+                                    <div class="row">
+                                        <div class="col-sm-5 text-center">
+                                            <div class="icon-area">
+                                                <img src="{% static 'assets/images/icon/transaction-details-icon.png' %}" alt="icon">
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <div class="right-area">
+                                                <h6>Transaction Details</h6>
+                                                <p>Transaction ID: <span class="mdr" id="transaction-id"></span></p>
+                                    <p>Date: <span class="mdr" id="transaction-date"></span></p>
+                                    <p>Status: <span class="mdr" id="transaction-status"></span></p>
+                                    <p>Amount: <span class="mdr" id="transaction-amount"></span></p>
+                                    <p>Transaction Type: <span class="mdr" id="transaction-type"></span></p>
+                                    <!-- Add other transaction details here -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    
+    <!-- Transactions Popup start -->
+
+    <!--==================================================================-->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/apexcharts.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/waypoint.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/plugin.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var transactionRows = document.querySelectorAll('.transaction-row');
+    
+            transactionRows.forEach(function (row) {
+                row.addEventListener('click', function () {
+                    var transactionId = this.getAttribute('data-id');
+                    var transactionDate = this.querySelector('.transaction-date').textContent;
+                    var transactionStatus = this.querySelector('.transaction-status').textContent;
+                    var transactionAmount = this.querySelector('.transaction-amount').textContent;
+                    var transactionType = this.querySelector('.transaction-type').textContent;
+                    var modal = document.getElementById('transactionsMod');
+    
+                    // Update modal content with transaction details
+                    modal.querySelector('#transaction-id').textContent = transactionId;
+                    modal.querySelector('#transaction-date').textContent = transactionDate;
+                    modal.querySelector('#transaction-status').textContent = transactionStatus;
+                    modal.querySelector('#transaction-amount').textContent = transactionAmount;
+                    modal.querySelector('#transaction-type').textContent = transactionType;
+    
+                    // Show the modal
+                    var modalInstance = new bootstrap.Modal(modal);
+                    modalInstance.show();
+                });
+            });
+        });
+    </script>
+    
+</body>
+
+
+</html>

@@ -1,0 +1,279 @@
+{% load static %} {% load static i18n %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SMART NFC</title>
+
+    <link rel="shortcut icon" href="{% static 'assets/images/fav.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/apexcharts.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/arafat-font.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/plugin/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.dataTables.css">
+</head>
+
+<body>
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section body-collapse">
+        <div class="overlay">
+            <div class="container-fruid">
+                <div class="row d-flex header-area">
+                    <div class="navbar-area d-flex align-items-center justify-content-between">
+                        <div class="sidebar-icon">
+                            <img src="{% static 'assets/images/icon/menu.png' %}" alt="icon">
+                        </div>
+                        <form action="#" class="flex-fill">
+                            <div class="form-group d-flex align-items-center">
+                                <img src="{% static 'assets/images/icon/search.png' %}" alt="icon">
+                                <input type="text" placeholder="Type to search...">
+                            </div>
+                        </form>
+                        <div class="dashboard-nav">
+                            <div class="single-item notifications-area">
+                            </div>
+                            <div class="single-item user-area">
+                                <div class="profile-area d-flex align-items-center">
+                                    <span class="user-profile">
+                                        <img src="{% static 'assets/images/avatar.png' %}" alt="User">
+                                    </span>
+                                    <i class="fa-solid fa-sort-down"></i>
+                                </div>
+                                <div class="main-area user-content">
+                                    <div class="head-area d-flex align-items-center">
+                                        <div class="profile-img">
+                                            <img src="{% static 'assets/images/avatar-2.png' %}" alt="User">
+                                        </div>
+                                        <div class="profile-head">
+                                            <a href="javascript:void(0)">
+                                                <h5>{{account.full_name}}</h5>
+                                            </a>
+                                            <p class="wallet-id">Wallet ID: {{wallet.account_name}}</p>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li class="border-area">
+                                            <a href="/account"><i class="fas fa-cog"></i>Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="logout"><i class="fas fa-sign-out"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-wrapper">
+                        <div class="close-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        <div class="sidebar-logo">
+                            <a href=""><img src="{% static 'assets/images/logo.png' %}" alt="logo"></a>
+                        </div>
+                        <ul>
+                            <li class="">
+                                <a href="/dashboard_user">
+                                    <img src="{% static 'assets/images/icon/dashboard.png' %}" alt="Dashboard"> <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <!-- Update paths for other static files similarly -->
+                        </ul>
+
+                        <ul>
+                            <li class="">
+                                <a href="/wallet">
+                                    <img src="{% static 'assets/images/icon/pay.png' %}" alt="Dashboard"> <span>Credit</span>
+                                </a>
+                            </li>
+                            <!-- Update paths for other static files similarly -->
+                        </ul>
+
+
+                        <ul>
+                            <li class="active">
+                                <a href="/transcations">
+                                    <img src="{% static 'assets/images/icon/transactions.png' %}" alt="Dashboard"> <span>Transactions</span>
+                                </a>
+                            </li>
+                            <!-- Update paths for other static files similarly -->
+                        </ul>
+
+
+                        <ul>
+                            <li class="">
+                                <a href="/deposit">
+                                    <img src="{% static 'assets/images/icon/recipients.png' %}" alt="Dashboard"> <span>Deposit Money</span>
+                                </a>
+                            </li>
+                            <!-- Update paths for other static files similarly -->
+                        </ul>
+
+
+                        <ul>
+                            <li class="">
+                                <a href="/withdraw">
+                                    <img src="{% static 'assets/images/icon/withdraw.png' %}" alt="Dashboard"> <span>Withdraw Money</span>
+                                </a>
+                            </li>
+                            <!-- Update paths for other static files similarly -->
+                        </ul>
+                        <ul class="bottom-item">
+                            <li>
+                                <a href="/account">
+                                    <img src="{% static 'assets/images/icon/account.png' %}" alt="Account"> <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="{% static 'assets/images/icon/support.png' %}" alt="Support"> <span>Support</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/logout">
+                                    <img src="{% static 'assets/images/icon/quit.png' %}" alt="Quit"> <span>Quit</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="pt-120">
+                            <div class="invite-now">
+                                <div class="img-area">
+                                    <img src="{% static 'assets/images/invite-now-illus.png' %}" alt="Image">
+                                </div>
+                                <p>Invite your friend and get $25</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+  
+    <section class="dashboard-section body-collapse transactions">
+        <div class="overlay pt-120">
+            <div class="container-fruid">
+                <div class="head-area">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-4">
+                            <h4>Transactions</h4>
+                        </div>
+                        <div class="col-lg-7 col-md-8">
+                            <div class="transactions-right d-flex align-items-center">
+                                <form action="#" class="flex-fill">
+                                    <div class="form-group d-flex align-items-center">
+                                        <img src="{% static 'assets/images/icon/search.png' %}" alt="icon">
+                                        <input type="text" placeholder="Type to search...">
+                                    </div>
+                                </form>
+                                <a href="javascript:void(0)">Monthly Statement</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="transactions-main">
+                            <div class="top-items">
+                                <h6>All Transactions</h6>
+                                <div class="export-area">
+                                    <ul class="d-flex align-items-center">
+                                        <li><a href="javascript:void(0)"><img src="{% static 'assets/images/icon/printer.png' %}" alt="icon">Print</a></li>
+                                        <li><a href="javascript:void(0)"><img src="{% static 'assets/images/icon/excel.png' %}" alt="icon">Excel</a></li>
+                                        <li><a href="javascript:void(0)"><img src="{% static 'assets/images/icon/pdf.png' %}" alt="icon">PDF</a></li>
+                                        <li><a href="javascript:void(0)"><img src="{% static 'assets/images/icon/csv.png' %}" alt="icon">CSV</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                           
+                        
+                                <div class="table-responsive">
+                                    <table class="table" id="tablewith">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Transaction Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for tran in transactions %}
+                                            <tr class="transaction-row" data-id="{{ tran.trans_id }}">
+                                                <td> <p class="mdr">{{ tran.trans_id }}</p></td>
+                                                <td class="transaction-date"><p class="mdr">{{ tran.date }}</p></td>
+                                                <td class="transaction-status"><p class="mdr"></p>Complete</p></td>
+                                                <td class="transaction-amount"><p class="mdr"></p>{{ tran.amount }}</p></td>
+                                                <td class="transaction-type"><p class="mdr"></p>{{ tran.transaction_type }}</p></td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                               
+                       
+                            <!-- Pagination and other elements omitted for brevity -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+ 
+    
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-ui.js' %}"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.1/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.print.min.js"></script>
+    
+    
+    <script src="{% static 'assets/js/plugin/apexcharts.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/waypoint.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/wow.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugin/plugin.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    
+    
+    <script>
+        new DataTable('#tablewith', {
+        layout: {
+            topStart: {
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+            }
+        }
+    });
+        
+    </script>
+    
+</body>
+
+
+</html>
